@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>注册</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FreeHTML5.co" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	
+
+  
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body class="style-3">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-md-push-8">
+					<!-- Start Sign In Form -->
+					<form class="fh5co-form animate-box" data-animate-effect="fadeInRight">
+						<h2>注册</h2>
+						
+						<div class="form-group">
+							<label for="phone" class="sr-only">手机号</label>
+							<input type="text" class="form-control" id="phone" placeholder="手机号" autocomplete="off">
+						</div>
+						<div class="form-group">
+							<label for="message" class="sr-only">验证码</label>
+							<input type="text" class="form-control" id="message" placeholder="验证码" autocomplete="off" style="width: 150px;float: left">
+							<input value="获取验证码" class="btn btn-primary" onclick="getMessage()" style="width: 150px">
+						</div>
+						<div class="form-group">
+							<label for="passWord" class="sr-only">密码</label>
+							<input type="password" class="form-control" id="passWord" placeholder="请输入密码" autocomplete="off">
+						</div>
+						<div class="form-group">
+							<label for="re-passWord" class="sr-only">密码2</label>
+							<input type="password" class="form-control" id="passWord2" placeholder="再次输入密码" autocomplete="off">
+						</div>
+						<div class="form-group">
+							<p>已注册？ <a href="login.html">登录</a></p>
+						</div>
+						<div class="form-group">
+							<input value="注  册" class="btn btn-primary" onclick="register()">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Placeholder -->
+	<script src="js/jquery.placeholder.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Main JS -->
+	<script src="js/main.js"></script>
+	</body>
+	<script type="text/javascript">
+	function register(){
+		$.ajax({
+			url:"/ee/user/add.do",
+			type:"get",
+			data:{"phone":$("#phone").val(),"passWord":$("#passWord").val(),"passWord2":$("#passWord2").val(),"message":$("#message").val()},
+			dataType:"json",
+			success:function(data){
+				if(data.status==0){
+					alert("手机号已存在！");
+				}else if(data.status==1){
+					alert("验证码错误！");
+				}else if(data.status==2){
+					alert("密码不一致！");
+				}else {
+					alert("注册成功！");
+					window.location.href="/ee/login.html";
+				}
+			}
+		})
+	}
+	</script>
+	<script type="text/javascript">
+	function getMessage() {
+		$.ajax({
+			url:"user/message.do",
+			type:"get",
+			data:{"phone":$("#phone").val()},
+			dataType:"json",
+			success:function(data){
+				if(data.status==1){
+					alert("验证码已发送");
+				}else{
+					alert("验证码发送失败");
+				}
+			}
+		})
+	}
+	</script>
+	
+</html>
+

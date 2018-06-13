@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+<mapper namespace="com.oracle.dao.ICategoryDao">
+	<resultMap type="com.oracle.model.Category" id="CategoryMapper">
+		<id column="id" property="id"/>
+		<result column="cat_name" property="catName"/>
+		<result column="cat_code" property="catCode"/>
+		<result column="pid" property="pid"/>
+		<result column="add_date" property="addDate"/>
+		<result column="update_date" property="updateDate"/>
+		<result column="sort" property="sort"/>
+	</resultMap>
+	<insert id="addCategory" parameterType="com.oracle.model.Category">
+		insert into t_Category(cat_name,cat_code,pid,add_date,sort) values (#{catName},#{catCode},#{pid},STR_TO_DATE(#{addDate},'%Y-%m-%d %H:%i:%s'),#{sort})
+	</insert>
+	<update id="updateCategoryById" parameterType="com.oracle.model.Category">
+		update t_Category 
+		<set>
+		<if test="catName!=null"> cat_name=#{catName},</if>
+		<if test="catCode!=null"> cat_code=#{catCode},</if>
+		<if test="pid!=null"> pid=#{pid},</if>
+		<if test="updateDate!=null"> update_date=STR_TO_DATE(#{updateDate},'%Y-%m-%d %H:%i:%s'),</if>
+		<if test="sort!=null"> sort=#{sort},</if>
+		</set>
+		 where id = #{id}
+	</update>
+	<delete id="deleteCategoryById" parameterType="int">
+		delete from t_Category where id = #{id}
+	</delete>
+	<select id="findCategoryPage" parameterType="java.util.Map" resultMap="CategoryMapper">
+		select * from t_Category limit #{startIndex}, #{rows}
+	</select>
+	<select id="findTotalSize" resultType="java.lang.Long">
+		select count(1) from t_Category
+	</select>
+</mapper>

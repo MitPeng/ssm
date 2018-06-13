@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:aop="http://www.springframework.org/schema/aop"  
+    xsi:schemaLocation="    
+           http://www.springframework.org/schema/beans    
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd    
+           http://www.springframework.org/schema/aop    
+           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd  
+           http://www.springframework.org/schema/context    
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd">  
+        	   
+       <!-- 自动扫描注解的bean -->  
+    <context:component-scan base-package="com.oracle.service" />  
+       <!--  <bean id="helloWorldImpl1" class="com.oracle.HelloWorldImpl1" />
+        <bean id="helloWorldImpl2" class="com.oracle.HelloWorldImpl2" />
+        <bean id="timeHandler" class="com.oracle.TimeHandler" />
+        <aop:config>
+            <aop:aspect id="time" ref="timeHandler">
+                <aop:pointcut id="addAllMethod" expression="execution(void com.oracle.HelloWorld.*(..))" />
+                <aop:before method="printTime" pointcut-ref="addAllMethod" />
+                <aop:after method="afterMethod" pointcut-ref="addAllMethod" />
+                <aop:around method="aroundMethod" pointcut-ref="addAllMethod"/>
+            </aop:aspect>
+        </aop:config> -->
+        
+        <!-- 配置自定义Realm -->
+    <bean id="myRealm" class="com.oracle.shiro.UserRealm">
+    	<property name="credentialsMatcher" >
+    		<bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+    			<property name="hashAlgorithmName" value="MD5"></property>
+    			<property name="hashIterations" value="1024"></property>
+    		</bean>
+    	</property>
+    </bean>
+
+    <!-- 安全管理器 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myRealm"/>
+    </bean>
+
+  <!-- Shiro过滤器 核心-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- Shiro的核心安全接口,这个属性是必须的 -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 身份认证失败，则跳转到登录页面的配置 -->
+        <property name="loginUrl" value="/login.html"/>
+        <property name="successUrl" value="/index.jsp"/>
+        <!-- 权限认证失败，则跳转到指定页面 -->
+        <property name="unauthorizedUrl" value="/login.htmls"/>
+        <!-- Shiro连接约束配置,即过滤链的定义 -->
+        <property name="filterChainDefinitions">
+            <value>
+            	<!-- /candidate/admin/**=authc -->
+                <!--anon 表示匿名访问，不需要认证以及授权-->
+				/css/** = anon
+				/dist/** = anon
+				/js/** = anon
+				/font/** = anon
+				/images/** = anon
+				/sass/** = anon
+				/user/login.do = anon
+				/user/reg.do = anon
+				/res/** = anon
+				/logout = logout
+                <!--authc表示需要认证 没有进行身份认证是不能进行访问的-->
+                /**=authc
+<!--            /student=roles[teacher]
+                /teacher=perms["user:create"]
+ -->            </value>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:ehcache="http://www.springmodules.org/schema/ehcache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springmodules.org/schema/ehcache http://www.springmodules.org/schema/cache/springmodules-ehcache.xsd">
+	 <!-- 开启Shiro注解 -->
+	     <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+	 
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+    
+    
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">  
+    <property name="exceptionMappings">  
+        <props>  
+            <prop key="org.apache.shiro.authz.UnauthorizedException">
+                /unauthorized
+            </prop>  
+        </props>  
+    </property>  
+    </bean>
+<!-- 	  <bean id="RoleAuthority" class="com.oracle.authority.RoleAuthority" />
+       <aop:config>
+            <aop:aspect id="authorityValidate" ref="RoleAuthority">
+                <aop:pointcut id="addAllMethod" expression="execution(* com.oracle.controller.*.*(..))" />
+                <aop:around method="authorityValidate" pointcut-ref="addAllMethod"/>
+            </aop:aspect>
+        </aop:config>
+	 -->
+		<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->  
+    <!-- 支持JSON数据格式 -->
+	<bean  
+        class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">  
+        <property name="messageConverters" >  
+            <list>  
+                <ref bean="mappingJacksonHttpMessageConverter" />  
+            </list>  
+        </property>  
+    </bean>  
+    <bean id="mappingJacksonHttpMessageConverter"  
+        class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
+    </bean> 
+
+     <!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->  
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+        <property name="prefix" value="/WEB-INF/views/" />  
+        <property name="suffix" value=".jsp" /><!--可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑 -->  
+    </bean> 
+    <context:component-scan base-package="com.oracle.controller" /> 
+  <!--   <mvc:interceptors>
+    	<mvc:interceptor>
+    	  <mvc:mapping path="/**"/>
+    	  <mvc:exclude-mapping path="/user/reg.dodo"/>
+    	  <mvc:exclude-mapping path="/user/loginIn.dodo"/>
+    	 <bean id="loginIn" class="com.oracle.interceptor.LoginInterceptor" />
+    	</mvc:interceptor>
+    </mvc:interceptors> -->
+    
+    
+    
+    
+		</beans>

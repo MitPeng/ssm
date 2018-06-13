@@ -64,6 +64,8 @@
 				/reg.html = anon
 				/user/message.do = anon
 				/user/add.do = anon
+				/user/admin/index.do = anon
+				/user/index.do = anon
 				/res/** = anon
 				/logout = logout
                 <!--authc表示需要认证 没有进行身份认证是不能进行访问的-->

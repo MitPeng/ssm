@@ -94,7 +94,7 @@
 	<script type="text/javascript">
 	function register(){
 		$.ajax({
-			url:"/ee/user/add.do",
+			url:"user/add.do",
 			type:"get",
 			data:{"phone":$("#phone").val(),"passWord":$("#passWord").val(),"passWord2":$("#passWord2").val(),"message":$("#message").val()},
 			dataType:"json",

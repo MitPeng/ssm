@@ -17,6 +17,7 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
 import com.oracle.model.Role;
@@ -27,8 +28,9 @@ import com.oracle.service.IUserService;
 
 
 public class UserRealm extends AuthorizingRealm {
-	@Resource
+	@Autowired
     private IUserService usi;
+	@Autowired
 	private IRoleService rsi;
 
     @Override
@@ -38,9 +40,12 @@ public class UserRealm extends AuthorizingRealm {
 		List<String> roleList = new ArrayList<String>();
 //		List<String> permissionList = new ArrayList<String>();
 		User user = usi.queryUserByPhone(phone);
+//		System.out.println("user:"+user);
 		if(null != user){
 //			permissionList = usi.getPermissions(user.getId());
+//			System.out.println("id:"+user.getId());
 			List<Role> roles = rsi.findRoleByUid(user.getId());
+//			System.out.println(roles.get(0).toString());
 			if(null!= roles && roles.size()>0){
 				//获取当前登录账号的角色权限
 				for(Role r : roles){
@@ -49,7 +54,7 @@ public class UserRealm extends AuthorizingRealm {
 					}
 				}
 			}
-			
+//			System.out.println(roleList.get(0).toString());
 		}else{
 			throw new AuthorizationException();
 		}

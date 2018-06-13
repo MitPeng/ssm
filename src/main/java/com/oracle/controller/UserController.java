@@ -3,6 +3,7 @@ package com.oracle.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -16,9 +17,12 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.oracle.model.Menu;
 import com.oracle.model.User;
+import com.oracle.service.IMenuService;
 import com.oracle.service.IUserService;
 import com.oracle.utils.MessageUtil;
 
@@ -28,6 +32,8 @@ public class UserController {
 
 	@Autowired
 	private IUserService usi;
+	@Autowired
+    private IMenuService msi;
 	
 	@RequestMapping("/index")
 	public String getIndex() {
@@ -38,6 +44,25 @@ public class UserController {
 	public String getCategory() {
 		return "category";
 	}
+	
+	@RequestMapping(value="/admin/index",method = RequestMethod.GET)
+    public String aindex(){
+        return  "admin/index";
+    }
+	
+	@RequestMapping("/menu")
+    @ResponseBody
+    public Map<String,Object> findMenuByPid(Integer pid){
+        List<Menu> menus = msi.findMenuByPid(pid);
+        Map<String,Object> res = new HashMap<String,Object>();
+        Map<String,Object> r = new HashMap<String,Object>();
+        r.put("children",menus);
+        res.put("code",100);
+        res.put("msg","菜单获取成功");
+        res.put("extend",r);
+        System.out.println(res);
+        return res;
+    }
 	
 	@RequestMapping("/login")
 	@ResponseBody
@@ -52,11 +77,9 @@ public class UserController {
 				subject.login(token);
 //				System.out.println(subject.getSession().getAttribute("CURRENT_USER"));
 				map.put("status", 1);
-				return map;
 			}catch(Exception e) {
 				e.printStackTrace();
 				map.put("status", 0);
-				return map;
 			}
 		}else {
 //			User user = usi.queryUserByPhone(phone);
@@ -70,8 +93,13 @@ public class UserController {
 //				return map;
 //			}
 			map.put("status", 1);
-			return map;
 		}
+		String roleCode = "";
+        if(subject.hasRole("admin")){
+            roleCode = "admin";
+        }
+        map.put("roleCode",roleCode);
+        return map;
 	}
 	
 	@RequestMapping("/add")

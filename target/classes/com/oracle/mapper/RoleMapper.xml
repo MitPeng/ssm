@@ -7,10 +7,10 @@
 		<result column="role_code" property="roleCode"/>
 	</resultMap>
 	<select id="findRoleByUid" resultMap="RoleMapper">
-		SELECT r.*
+		SELECT r.* 
 		FROM t_role r 
-		LEFT JOIN t_user_role ur  ON r.id = ur.rid
-		LEFT JOIN t_user u  ON u.id = ur.uid
+		LEFT JOIN t_user_role ur  ON r.id = ur.rid 
+		LEFT JOIN t_user u  ON u.id = ur.uid 
 		<where>
 			u.id = #{id}
 		</where>

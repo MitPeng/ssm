@@ -1,5 +1,6 @@
 package com.oracle.shiro;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -16,8 +17,11 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
+import org.springframework.util.StringUtils;
 
+import com.oracle.model.Role;
 import com.oracle.model.User;
+import com.oracle.service.IRoleService;
 import com.oracle.service.IUserService;
 
 
@@ -25,23 +29,33 @@ import com.oracle.service.IUserService;
 public class UserRealm extends AuthorizingRealm {
 	@Resource
     private IUserService usi;
+	private IRoleService rsi;
 
     @Override
     //授权
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-    	String currentUsername = (String)super.getAvailablePrincipal(principals);
-		List<String> roleList = null;
-		List<String> permissionList = null;
-//		User user = usi.findUserByUsername(currentUsername);
-//		if(null != user){
+    	String phone = (String)super.getAvailablePrincipal(principals);
+		List<String> roleList = new ArrayList<String>();
+//		List<String> permissionList = new ArrayList<String>();
+		User user = usi.queryUserByPhone(phone);
+		if(null != user){
 //			permissionList = usi.getPermissions(user.getId());
-//			roleList = usi.findRolesByUserId(user.getId());
-//		}else{
-//			throw new AuthorizationException();
-//		}
+			List<Role> roles = rsi.findRoleByUid(user.getId());
+			if(null!= roles && roles.size()>0){
+				//获取当前登录账号的角色权限
+				for(Role r : roles){
+					if(r!=null && !StringUtils.isEmpty(r.getRoleCode())){
+						roleList.add(r.getRoleCode());
+					}
+				}
+			}
+			
+		}else{
+			throw new AuthorizationException();
+		}
 		SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();
 		simpleAuthorInfo.addRoles(roleList);
-		simpleAuthorInfo.addStringPermissions(permissionList);
+//		simpleAuthorInfo.addStringPermissions(permissionList);
 		return simpleAuthorInfo;
     }
 

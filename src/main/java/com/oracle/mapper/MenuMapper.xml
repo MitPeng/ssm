@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.oracle.dao.IMenuDao">
+	<resultMap type="com.oracle.model.Menu" id="MenuMapper">
+		<id column="id" property="id"/>
+		<result column="menu_name" property="text"/>
+		<result column="menu_url" property="url"/>
+		<collection column="id" property="children" ofType="com.oracle.model.Menu" select="findMenuByPid"/>
+	</resultMap>
+	<select id="findMenuByPid" resultMap="MenuMapper" parameterType="java.lang.Integer">
+		select * from t_menu where pid=#{pid}
+	</select>
+</mapper>

@@ -25,7 +25,7 @@ import com.oracle.utils.MessageUtil;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-
+//123
 	@Autowired
 	private IUserService usi;
 	

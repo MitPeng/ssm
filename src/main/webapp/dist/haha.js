@@ -5,7 +5,7 @@ $(document).ready(function () {
    
     var menulist;
     $.ajax({
-    	url:"/user/menu.do",
+    	url:"/ee/user/menu.do",
         data:{"pid":0},
     	type:"post",
     	dataType:"json",

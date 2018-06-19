@@ -5,18 +5,10 @@ import java.util.List;
 public class Menu {
 	private Integer id;
 	private String text;
+	private Integer pid;
 	private String url;
 	private List<Menu> children;
-	public Menu(Integer id, String text, String url, List<Menu> children) {
-		super();
-		this.id = id;
-		this.text = text;
-		this.url = url;
-		this.children = children;
-	}
-	public Menu() {
-		super();
-	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -40,6 +32,16 @@ public class Menu {
 	}
 	public void setChildren(List<Menu> children) {
 		this.children = children;
+	}
+	public Integer getPid() {
+		return pid;
+	}
+	public void setPid(Integer pid) {
+		this.pid = pid;
+	}
+	@Override
+	public String toString() {
+		return "Menu [id=" + id + ", text=" + text + ", pid=" + pid + ", url=" + url + ", children=" + children + "]";
 	}
 	
 }

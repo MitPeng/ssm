@@ -27,7 +27,12 @@
 	<select id="findRolePage" parameterType="java.util.Map" resultMap="RoleMapper">
 		select * from t_role limit #{startIndex}, #{rows}
 	</select>
-	
+	<delete id="deleteUserAndRoleByRid" parameterType="int">
+		delete from t_user_role where rid = #{rid}
+	</delete>
+	<delete id="deleteRoleByRid" parameterType="int">
+		delete from t_role where id = #{rid}
+	</delete>
 	<select id="findUserANdRole"  resultType="java.lang.Long">
 		select count(*) from t_user_role where uid=#{userId} and rid=#{roleId}
 	</select>

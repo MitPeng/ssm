@@ -14,5 +14,6 @@ public interface IRoleDao {
 	public Long findTotleSize();
 	public List<Role> findRolePage(Map map);
 	public Long findUserANdRole(@Param("roleId") Integer roleId,@Param("userId") Integer userId);
-	
+	int deleteUserAndRoleByRid(Integer rid);
+	int deleteRoleByRid(Integer rid);
 }

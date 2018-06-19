@@ -52,4 +52,16 @@ public class RoleServiceImple implements IRoleService {
 		return ird.findUserANdRole(roleId, userId);
 	}
 
+	@Override
+	public int deleteUserAndRoleByRid(Integer rid) {
+		// TODO Auto-generated method stub
+		return ird.deleteUserAndRoleByRid(rid);
+	}
+
+	@Override
+	public int deleteRoleByRid(Integer rid) {
+		// TODO Auto-generated method stub
+		return ird.deleteRoleByRid(rid);
+	}
+
 }

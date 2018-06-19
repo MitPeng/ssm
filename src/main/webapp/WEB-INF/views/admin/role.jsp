@@ -20,7 +20,7 @@
 <div id="toolbar"><div class="btn-group" role="group" aria-label="...">
   <button type="button" class="btn btn-default" data-toggle="modal" data-target="#roleAddModel">新增</button>
   <button type="button" class="btn btn-default">编辑</button>
-  <button type="button" class="btn btn-default">删除</button>
+  <button type="button" class="btn btn-default" onclick="deleteRole()">删除</button>
 </div></div>
 
 
@@ -34,7 +34,6 @@
         <h4 class="modal-title" id="myModalLabel">新增角色</h4>
       </div>
       <div class="modal-body">
-		
 		
     <fieldset>
     <div class="control-group">
@@ -77,11 +76,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">选择(<span id="roleNameModel"></span>)所绑定的用户</h4>
       </div>
-      <div class="modal-body" id="roleAndUserModelBody" style="padding-left:30px;">
-		
-	
-		
-      </div>
+      <div class="modal-body" id="roleAndUserModelBody" style="padding-left:30px;"></div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
         <button type="button" onclick="saveRoleAndUser()" class="btn btn-primary">保存</button>
@@ -139,7 +134,7 @@ $table = $('#table').bootstrapTable({
     minimumCountColumns: 2,             //最少允许的列数
     clickToSelect: true,                //是否启用点击选中行
     //height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
-    uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+    uniqueId: "id",                     //每一行的唯一标识，一般为主键列
     showToggle: true,                   //是否显示详细视图和列表视图的切换按钮
     cardView: false,                    //是否显示详细视图
     detailView: false,                  //是否显示父子表
@@ -183,6 +178,29 @@ $table = $('#table').bootstrapTable({
     
 });
 
+var getSelectRows = $("#table").bootstrapTable('getSelections', function (row) {
+    return row;
+});
+
+function deleteRole(){
+	if(getSelectRows.length==0){
+		return alert("请选择要删除的角色！");
+	}
+	$.ajax({
+		url:"/ee/role/deleteRole.do",
+		type:"post",
+		dataType:"json",
+		data:{rid:select.id},
+		success:function(d){
+			if(d.code==200){
+				$("#table").bootstrapTable('refresh');
+			}else{
+				alert("删除失败！");
+			}
+		}
+	})
+}
+
 function userFormatter(value, row, index){
 	
 	return "<a href='javascript:;' class='btn btn-xs blue' onclick=\"roleAndUser('" + value + "','" + row.roleName + "')\" title='角色用户绑定'><span class='glyphicon glyphicon-pencil'></span></a>";
@@ -198,8 +216,6 @@ function roleAndUser(roleId,roleName){
 		dataType:"json",
 		success:function(d){
 			$.each(d,function(i,e){
-				
-				
 				$.ajax({
 					url:"/ee/role/findUserAndRole.do",
 					type:"post",
@@ -208,11 +224,11 @@ function roleAndUser(roleId,roleName){
 					success:function(d){
 						if(d.code==200){
 							$("#roleAndUserModelBody").append('<label class="checkbox">'
-						              +'<input type="checkbox" value="'+e.id+'" name="userId" checked="checked">'+e.name 
+						              +'<input type="checkbox" value="'+e.id+'" name="userId" checked="checked">'+e.nickName 
 						           +'</label>' );
 						}else{
 							$("#roleAndUserModelBody").append('<label class="checkbox">'
-						              +'<input type="checkbox" value="'+e.id+'" name="userId">'+e.name 
+						              +'<input type="checkbox" value="'+e.id+'" name="userId">'+e.nickName 
 						           +'</label>' );
 						}
 					}
@@ -239,7 +255,6 @@ function saveRoleAndUser(){
 		success:function(d){
 			if(d.code==200){
 				$('#roleAndUserModel').modal('hide');
-				
 			}else{
 				alert("新增失败！");
 			}

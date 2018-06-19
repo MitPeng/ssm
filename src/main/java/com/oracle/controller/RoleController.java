@@ -36,6 +36,7 @@ public class RoleController {
 	@ResponseBody
 	public Map<String,Object> saveUserAndRole(Integer roleId,String userIds){
 		Map<String,Object> map = new HashMap<String,Object>();
+		rsi.deleteUserAndRoleByRid(roleId);
 		for(String userId:userIds.split(",")) {
 			if(!StringUtils.isEmpty(userId)) {
 				rsi.addUserAndRole(roleId, Integer.valueOf(userId));
@@ -46,9 +47,9 @@ public class RoleController {
 	}
 	
 	
-	@RequestMapping("/findPageData")
+	@RequestMapping("/findRolePage")
 	@ResponseBody
-	public Object findPageData(Integer page,Integer rows) {
+	public Object findRolePage(Integer page,Integer rows) {
 		Integer startIndex = (page-1)*rows;
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("startIndex", startIndex);
@@ -58,11 +59,23 @@ public class RoleController {
 		map.put("total", rsi.findTotleSize());
 		return map;
 	}
-	@RequestMapping("/findUserANdRole")
+	@RequestMapping("/findUserAndRole")
 	@ResponseBody
-	public Map findRoleANdUser(Integer roleId,Integer userId) {
+	public Object findRoleANdUser(Integer roleId,Integer userId) {
 		Map<String,Object> map = new HashMap<String,Object>();
 		Long res = rsi.findUserANdRole(roleId, userId);
+		if(res!=0) {
+			map.put("code", 200);
+		}else {
+			map.put("code", 500);
+		}
+		return map;
+	}
+	@RequestMapping("/deleteRole")
+	@ResponseBody
+	public Object deleteRole(Integer roleId) {
+		Map<String,Object> map = new HashMap<String,Object>();
+		int res = rsi.deleteRoleByRid(roleId);
 		if(res!=0) {
 			map.put("code", 200);
 		}else {

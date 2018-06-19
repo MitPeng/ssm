@@ -11,4 +11,5 @@ public interface IUserDao {
 	User queryUserByPhone(String phone);
 	User queryUserByPhoneAndPassWord(@Param("phone") String phone,@Param("passWord") String passWord);
 	List<User> findAllUser();
+	
 }

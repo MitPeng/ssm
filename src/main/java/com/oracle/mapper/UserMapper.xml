@@ -27,6 +27,8 @@
 	<select id="queryUserByPhoneAndPassWord" resultMap="UserMapper">
 		select id,real_name,nick_name,sex,date_format(birthdate, '%Y%m%d%H%i%s') as birthdate,pass_word,phone,email,question,answer,date_format(reg_date, '%Y%m%d%H%i%s') as reg_date,date_format(last_login_date, '%Y%m%d%H%i%s') as last_login_date,last_login_ip,salt from t_user where phone = #{phone} and pass_word = #{passWord}
 	</select>
-	
+	<select id="findAllUser" resultMap="UserMapper">
+		select * from t_user 
+	</select>
 	
 </mapper>

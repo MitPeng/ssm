@@ -1,5 +1,7 @@
 package com.oracle.service.imple;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +31,12 @@ public class UserServiceImple implements IUserService {
 	public User login(String phone, String passWord) {
 		// TODO Auto-generated method stub
 		return iud.queryUserByPhoneAndPassWord(phone, passWord);
+	}
+
+	@Override
+	public List<User> findAllUser() {
+		// TODO Auto-generated method stub
+		return iud.findAllUser();
 	}
 
 }

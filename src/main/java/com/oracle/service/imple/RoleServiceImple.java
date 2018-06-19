@@ -1,6 +1,7 @@
 package com.oracle.service.imple;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,36 @@ public class RoleServiceImple implements IRoleService {
 	public List<Role> findRoleByUid(Integer id) {
 		// TODO Auto-generated method stub
 		return ird.findRoleByUid(id);
+	}
+
+	@Override
+	public int addRole(Role r) {
+		// TODO Auto-generated method stub
+		return ird.addRole(r);
+	}
+
+	@Override
+	public int addUserAndRole(Integer roleId, Integer userId) {
+		// TODO Auto-generated method stub
+		return ird.addUserAndRole(roleId, userId);
+	}
+
+	@Override
+	public Long findTotleSize() {
+		// TODO Auto-generated method stub
+		return ird.findTotleSize();
+	}
+
+	@Override
+	public List<Role> findRolePage(Map map) {
+		// TODO Auto-generated method stub
+		return ird.findRolePage(map);
+	}
+
+	@Override
+	public Long findUserANdRole(Integer roleId, Integer userId) {
+		// TODO Auto-generated method stub
+		return ird.findUserANdRole(roleId, userId);
 	}
 
 }

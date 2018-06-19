@@ -40,11 +40,6 @@ public class UserController {
 		return "index";
 	}
 	
-	@RequestMapping("/category")
-	public String getCategory() {
-		return "category";
-	}
-	
 	@RequestMapping(value="/admin/index",method = RequestMethod.GET)
     public String aindex(){
         return  "admin/index";
@@ -68,14 +63,13 @@ public class UserController {
 	@ResponseBody
 	public Object login(String phone,String passWord) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		
 		Subject subject = SecurityUtils.getSubject();
 		if(subject.isAuthenticated()==false) {
 			UsernamePasswordToken token = new UsernamePasswordToken(phone, passWord);
 //			System.out.println("token:"+token);
 			try {
 				subject.login(token);
-//				System.out.println(subject.getSession().getAttribute("CURRENT_USER"));
+				System.out.println("”√ªß£∫"+subject.getSession().getAttribute("CURRENT_USER"));
 				map.put("status", 1);
 			}catch(Exception e) {
 				e.printStackTrace();
@@ -163,5 +157,11 @@ public class UserController {
 		User u = (User) session.getAttribute("CURRENT_USER");
 //		System.out.println(u);
 		return u;
+	}
+	
+	@RequestMapping("/findAllUser")
+	@ResponseBody
+	public Object findAllUser() {
+		return usi.findAllUser();
 	}
 }

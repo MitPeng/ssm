@@ -15,4 +15,20 @@
 			u.id = #{id}
 		</where>
 	</select>
+	<insert id="addRole" parameterType="com.oracle.model.Role">
+		insert into t_role(role_name,role_code) values (#{roleName},#{roleCode})
+	</insert>
+	<insert id="addUserAndRole" >
+		insert into t_user_role(rid,uid) values (#{roleId},#{userId})
+	</insert>
+	<select id="findTotleSize" resultType="java.lang.Long">
+		select count(1) from t_Role
+	</select>
+	<select id="findRolePage" parameterType="java.util.Map" resultMap="RoleMapper">
+		select * from t_role limit #{startIndex}, #{rows}
+	</select>
+	
+	<select id="findUserANdRole"  resultType="java.lang.Long">
+		select count(*) from t_user_role where uid=#{userId} and rid=#{roleId}
+	</select>
 </mapper>

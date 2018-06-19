@@ -10,4 +10,25 @@
 	<select id="findMenuByPid" resultMap="MenuMapper" parameterType="java.lang.Integer">
 		select * from t_menu where pid=#{pid}
 	</select>
+	<insert id="addMenu" parameterType="com.oracle.model.Menu">
+		insert into t_Menu(menu_name,menu_url,pid) values (#{text},#{url},#{pid})
+	</insert>
+	<update id="updateMenuById" parameterType="com.oracle.model.Menu">
+		update t_Menu 
+		<set>
+		<if test="text!=null"> menu_name=#{text},</if>
+		<if test="url!=null"> menu_url=#{url},</if>
+		<if test="pid!=null"> pid=#{pid},</if>
+		</set>
+		 where id = #{id}
+	</update>
+	<delete id="deleteMenuById" parameterType="int">
+		delete from t_Menu where id = #{id}
+	</delete>
+	<select id="findMenuPage" parameterType="java.util.Map" resultMap="MenuMapper">
+		select * from t_Menu limit #{startIndex}, #{rows}
+	</select>
+	<select id="findTotalSize" resultType="java.lang.Long">
+		select count(1) from t_Menu
+	</select>
 </mapper>

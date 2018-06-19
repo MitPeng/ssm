@@ -89,7 +89,7 @@
 	<script type="text/javascript">
 	function login(){
 		$.ajax({
-			url:"user/login.do",
+			url:"/ee/user/login.do",
 			type:"get",
 			data:{"phone":$("#phone").val(),"passWord":$("#passWord").val()},
 			dataType:"json",

@@ -11,4 +11,19 @@ public class MenuController {
 	public String getCategory() {
 		return "admin/category";
 	}
+	
+	@RequestMapping("/menu")
+	public String getMenu() {
+		return "admin/menu";
+	}
+	
+	@RequestMapping("/role")
+	public String getRole() {
+		return "admin/role";
+	}
+	
+	@RequestMapping("/user")
+	public String getUser() {
+		return "admin/user";
+	}
 }

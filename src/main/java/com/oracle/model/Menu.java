@@ -9,6 +9,17 @@ public class Menu {
 	private String url;
 	private List<Menu> children;
 	
+	public Menu() {
+		super();
+	}
+	public Menu(Integer id, String text, Integer pid, String url, List<Menu> children) {
+		super();
+		this.id = id;
+		this.text = text;
+		this.pid = pid;
+		this.url = url;
+		this.children = children;
+	}
 	public Integer getId() {
 		return id;
 	}

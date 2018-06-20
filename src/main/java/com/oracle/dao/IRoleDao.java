@@ -16,4 +16,5 @@ public interface IRoleDao {
 	public Long findUserANdRole(@Param("roleId") Integer roleId,@Param("userId") Integer userId);
 	int deleteUserAndRoleByRid(Integer rid);
 	int deleteRoleByRid(Integer rid);
+	int updateRoleById(Role r);
 }

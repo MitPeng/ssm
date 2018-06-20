@@ -14,4 +14,5 @@ public interface IRoleService {
 	public Long findUserANdRole(Integer roleId,Integer userId);
 	int deleteUserAndRoleByRid(Integer rid);
 	int deleteRoleByRid(Integer rid);
+	int updateRoleById(Role r);
 }

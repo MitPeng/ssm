@@ -32,6 +32,19 @@ public class RoleController {
 		return map;
 	}
 	
+	@RequestMapping("/updateRole")
+	@ResponseBody
+	public Map<String,Object> updateRole(Role role){
+		Map<String,Object> map = new HashMap<String,Object>();
+		int res = rsi.updateRoleById(role);
+		if(res==1) {
+			map.put("code", 200);
+		}else {
+			map.put("code", 500);
+		}
+		return map;
+	}
+	
 	@RequestMapping("/addUserAndRole")
 	@ResponseBody
 	public Map<String,Object> saveUserAndRole(Integer roleId,String userIds){

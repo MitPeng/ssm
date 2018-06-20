@@ -36,4 +36,12 @@
 	<select id="findUserANdRole"  resultType="java.lang.Long">
 		select count(*) from t_user_role where uid=#{userId} and rid=#{roleId}
 	</select>
+	<update id="updateRoleById" parameterType="com.oracle.model.Role">
+		update t_Role 
+		<set>
+		<if test="roleName!=null"> role_name=#{roleName},</if>
+		<if test="roleCode!=null"> role_code=#{roleCode},</if>
+		</set>
+		 where id = #{id}
+	</update>
 </mapper>

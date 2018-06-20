@@ -19,7 +19,7 @@
 <table id="table"></table>
 <div id="toolbar"><div class="btn-group" role="group" aria-label="...">
   <button type="button" class="btn btn-default" data-toggle="modal" data-target="#roleAddModel">新增</button>
-  <button type="button" class="btn btn-default">编辑</button>
+  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#roleUpdateModel" onclick="updateRole1()">编辑</button>
   <button type="button" class="btn btn-default" onclick="deleteRole()">删除</button>
 </div></div>
 
@@ -66,7 +66,54 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="roleUpdateModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">修改角色</h4>
+      </div>
+      <div class="modal-body">
+		
+    <fieldset>
+    <div class="control-group">
 
+          <!-- Text input-->
+          <label class="control-label" for="input01">编号：</label>
+          <div class="controls">
+            <input type="text"  id="id1" class="input-xlarge" readonly="readonly">
+          </div>
+        </div>
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">角色名：</label>
+          <div class="controls">
+            <input type="text"  id="roleName1" class="input-xlarge">
+          </div>
+        </div>
+
+    <div class="control-group">
+
+          <!-- Search input-->
+          <label class="control-label">  角色编码：</label>
+          <div class="controls">
+            <input type="text" id="roleCode1" class="input-xlarge search-query">
+          </div>
+
+        </div>
+
+    </fieldset>
+		
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" onclick="updateRole2()" class="btn btn-primary">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="roleAndUserModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
@@ -113,6 +160,8 @@ function saveRole(){
 		}
 	})
 }
+
+
 
 $table = $('#table').bootstrapTable({
     url: '/ee/role/findRolePage.do',                      //请求后台的URL（*）
@@ -177,6 +226,52 @@ $table = $('#table').bootstrapTable({
     }
     
 });
+
+
+function updateRole1() {
+	$("#id1").val("");
+	$("#roleName1").val("");
+	$("#roleCode1").val("");
+	var getSelectRows = $("#table").bootstrapTable('getSelections', function (row) {
+	    return row;
+	});
+	if(getSelectRows.length==0){
+		return alert("请选择要修改的角色！");
+	}else if(getSelectRows.length!=1){
+		return alert("请勿多选！");
+	}
+	var id = getSelectRows[0].id;
+	var roleName = getSelectRows[0].roleName;
+	var roleCode = getSelectRows[0].roleCode;
+	$("#id1").val(id);
+	$("#roleName1").val(roleName);
+	$("#roleCode1").val(roleCode);
+	
+}
+
+function updateRole2(){
+	var id = $("#id1").val();
+	var roleName = $("#roleName1").val();
+	var roleCode = $("#roleCode1").val();
+	$.ajax({
+		url:"/ee/role/updateRole.do",
+		type:"post",
+		dataType:"json",
+		data:{id:id,roleName:roleName,roleCode:roleCode},
+		success:function(d){
+			if(d.code==200){
+				$('#roleUpdateModel').modal('hide');
+				$("#table").bootstrapTable('refresh');
+				$("#id1").val("");
+				$("#roleName1").val("");
+				$("#roleCode1").val("");
+			}else{
+				alert("修改失败！");
+			}
+		}
+	})
+}
+
 
 function deleteRole(){
 	var getSelectRows = $("#table").bootstrapTable('getSelections', function (row) {

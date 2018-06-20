@@ -64,4 +64,10 @@ public class RoleServiceImple implements IRoleService {
 		return ird.deleteRoleByRid(rid);
 	}
 
+	@Override
+	public int updateRoleById(Role r) {
+		// TODO Auto-generated method stub
+		return ird.updateRoleById(r);
+	}
+
 }

@@ -75,7 +75,7 @@
 <body>
 <nav class="navbar">
 	<div class="navbarLeft"><span class="logo-lg">后台管理</span></div>
-	<iframe name="iframe" src="" width="1600px" height="800px" scrolling="no" frameborder="0" style="margin-top: 100px;margin-left: 50px"> </iframe>
+	<iframe name="iframe" src="" width="1600px" height="800px" scrolling="yes" frameborder="0" style="margin-top: 100px;margin-left: 50px"> </iframe>
 </nav>
 <aside class="main-sidebar">
 <section id="div_menu" class="sidebar">

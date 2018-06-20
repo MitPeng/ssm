@@ -1,0 +1,29 @@
+/*css 初始化 */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+fieldset, img,input,button { border:none; padding:0;margin:0;outline-style:none; }
+ul, ol { list-style:none; }
+input { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}
+select, input { vertical-align:middle;}
+select, input, textarea { font-size:12px; margin:0; }
+textarea { resize:none; }
+img {border:0;	vertical-align:middle; display:inline-block; }
+table { border-collapse:collapse; }
+body {
+    font:12px/24px 'Microsoft YaHei', '微软雅黑','Open Sans', 'Helvetica Neue', Arial, 'PingFang SC', 'Hiragino Sans GB',  sans-serif;
+    color:#000;
+    background:#FBFBFB;
+}
+a {color:#000; text-decoration:none; }
+a:hover{text-decoration: none;color:#000;}
+h1,h2,h3,h4,h5,h6 {text-decoration:none;font-weight:normal;/*font-size:100%;*/}
+s,i,em{font-style:normal;text-decoration:none;}
+.container{width:70%;margin:0 auto}
+.right{float: right;}
+.left{float: left;}
+.clear:after{content:"";display: block;clear: both;}
+.center{ text-align:center;}
+.clearfix:before, .clearfix:after { display: table; content: " ";}
+.clearfix:after { clear: both;}
+/*共用部分*/
+.section{width:1200px;margin:0 auto;}
+dt{ font-weight: normal;}

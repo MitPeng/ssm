@@ -26,4 +26,9 @@ public class MenuController {
 	public String getUser() {
 		return "admin/user";
 	}
+	
+	@RequestMapping("/commList")
+	public String commList() {
+		return "admin/commList";
+	}
 }

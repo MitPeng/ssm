@@ -1,0 +1,48 @@
+body{
+	background: #fff;
+}
+#main>section ul{
+	margin-bottom: 15px;
+}
+.decoration{ font-size:14px;color:#5a5a5a;}
+.list-nav{}
+.groups{border:1px solid #dbdbdb;padding-top:10px;margin-bottom:24px;}
+.groups-list{border-bottom:1px solid #e8e8e8;padding:5px 0; line-height:32px;}
+.groups-list>div a{ font-family:"microsoft yahei"; font-size:14px;color:#4a4a4a;}
+.groups-list .title{color:#000000;width:80px;}
+#main .groups .list-tag{margin-top:0px;}
+.groups .list-tag li{ float:left;margin-right:10px;background:url(../img/ico_2.jpg) no-repeat left;padding-left:10px;}
+.groups .list-tag li a:hover,.groups .list-tag li a.hover{color: #ae7d45;}
+.groups .list-tag li a.hover{}
+/**/
+.list-item{margin-top:24px;}
+.list-item dt img{}
+.list-item dd{padding-top:10px;}
+.list-item dd span{ font-size:14px;}
+
+/**/
+.crumbs{ font-size: 13px;color: #666;margin-top:20px;}
+.crumbs span{padding:0 6px;}
+.brand{height:140px;background: #fff;margin-top:20px;}
+.brand-logo {width: 450px;}
+.brand-logo img,.brand-logo h3,.brand-logo p{ float: left; display: inline; }
+.brand-logo img{width:170px;height:120px;margin: 10px;}
+.brand-logo h3{padding-top:28px;}
+.brand-logo p{padding-top:30px; font-size: 16px; float: left;}
+.brand-logo span{background: url(../img/sup-contect.png) no-repeat;width: 20px;height:20px;display: inline-block; float: left;margin-left:5px;margin-top: 3px;margin-right: 10px;}
+.brand-logo p a{color:#666;}
+.brand .score{padding-top: 45px;padding-right: 50px;}
+.brand .score dl{margin-bottom: 5px;}
+.brand .score dl dt{color: #333; font-size: 12px;padding-top:1px;}
+.brand .score dl dt,.brand .score dl dd{ float: left; display: inline;margin: 0 8px;}
+.icon-star,.brand .score dl dd{color:#f49f26; font-size: 14px;}
+.icon-star{margin:0 1px;}
+.shoplist{margin-top:35px;}
+.shoplist ul{width: 105%;}
+.shoplist ul li{text-align: center; float: left; display: inline;width: 285px; overflow: hidden;margin-right: 20px;margin-bottom: 20px;height:370px;background: #fff;}
+.shoplist ul li i{width: 100%;height:285px;overflow: hidden; display: inline-block;}
+.shoplist ul li:hover{box-shadow: 0 0 20px #ececec;}
+.shoplist ul li img{width:100%;transition: transform 0.5s ease-in-out 0s;}
+.shoplist ul li:hover img{transform: scale3d(1.03,1.03,1);}
+.shoplist ul li h3{ font-size: 16px; text-align: center;padding: 10px 0;}
+.shoplist ul li span.price{color: #ff3333; font-size: 18px; font-family: "microsoft yahei";}

@@ -73,8 +73,9 @@ public class RoleController {
 	}
 	@RequestMapping("/deleteRole")
 	@ResponseBody
-	public Object deleteRole(Integer roleId) {
+	public Object deleteRole(String rid) {
 		Map<String,Object> map = new HashMap<String,Object>();
+		int roleId = Integer.valueOf(rid);
 		int res = rsi.deleteRoleByRid(roleId);
 		if(res!=0) {
 			map.put("code", 200);

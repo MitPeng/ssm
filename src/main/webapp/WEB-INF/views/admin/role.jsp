@@ -178,27 +178,32 @@ $table = $('#table').bootstrapTable({
     
 });
 
-var getSelectRows = $("#table").bootstrapTable('getSelections', function (row) {
-    return row;
-});
-
 function deleteRole(){
+	var getSelectRows = $("#table").bootstrapTable('getSelections', function (row) {
+	    return row;
+	});
 	if(getSelectRows.length==0){
 		return alert("请选择要删除的角色！");
 	}
-	$.ajax({
-		url:"/ee/role/deleteRole.do",
-		type:"post",
-		dataType:"json",
-		data:{rid:select.id},
-		success:function(d){
-			if(d.code==200){
-				$("#table").bootstrapTable('refresh');
-			}else{
-				alert("删除失败！");
+	var selects = new Array();
+	for(var i=0;i<getSelectRows.length;i++){
+		selects[i] = getSelectRows[i].id;
+		var rid = selects[i];
+		$.ajax({
+			url:"/ee/role/deleteRole.do",
+			type:"post",
+			dataType:"json",
+			data:{rid:rid},
+			success:function(d){
+				if(d.code==200){
+					$("#table").bootstrapTable('refresh');
+				}else{
+					alert("删除失败！");
+				}
 			}
-		}
-	})
+		})
+	}
+	
 }
 
 function userFormatter(value, row, index){

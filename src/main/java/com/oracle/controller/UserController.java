@@ -55,7 +55,6 @@ public class UserController {
         res.put("code",100);
         res.put("msg","菜单获取成功");
         res.put("extend",r);
-        System.out.println(res);
         return res;
     }
 	
@@ -69,7 +68,6 @@ public class UserController {
 //			System.out.println("token:"+token);
 			try {
 				subject.login(token);
-				System.out.println("用户："+subject.getSession().getAttribute("CURRENT_USER"));
 				map.put("status", 1);
 			}catch(Exception e) {
 				e.printStackTrace();
@@ -147,7 +145,6 @@ public class UserController {
 	public String exit(HttpSession session) {
 		Subject subject = SecurityUtils.getSubject();
 		subject.logout();
-//		session.removeAttribute("CURRENT_USER");
 		return "redirect:/login.html";
 	}
 	
@@ -155,7 +152,6 @@ public class UserController {
 	@ResponseBody
 	public Object getUser(HttpSession session) {
 		User u = (User) session.getAttribute("CURRENT_USER");
-//		System.out.println(u);
 		return u;
 	}
 	

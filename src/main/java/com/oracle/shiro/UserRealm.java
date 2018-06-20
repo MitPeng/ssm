@@ -40,12 +40,9 @@ public class UserRealm extends AuthorizingRealm {
 		List<String> roleList = new ArrayList<String>();
 //		List<String> permissionList = new ArrayList<String>();
 		User user = usi.queryUserByPhone(phone);
-//		System.out.println("user:"+user);
 		if(null != user){
 //			permissionList = usi.getPermissions(user.getId());
-//			System.out.println("id:"+user.getId());
 			List<Role> roles = rsi.findRoleByUid(user.getId());
-//			System.out.println(roles.get(0).toString());
 			if(null!= roles && roles.size()>0){
 				//获取当前登录账号的角色权限
 				for(Role r : roles){
@@ -54,7 +51,6 @@ public class UserRealm extends AuthorizingRealm {
 					}
 				}
 			}
-//			System.out.println(roleList.get(0).toString());
 		}else{
 			throw new AuthorizationException();
 		}
@@ -75,7 +71,6 @@ public class UserRealm extends AuthorizingRealm {
 				ByteSource salt = ByteSource.Util.bytes(user.getSalt());
 				SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user.getPhone(),
 						user.getPassWord(),salt,getName());
-//				System.out.println(authenticationInfo);
 				SecurityUtils.getSubject().getSession().setAttribute("CURRENT_USER", user);
 				return authenticationInfo;
 			}

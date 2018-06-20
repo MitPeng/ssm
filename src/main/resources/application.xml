@@ -58,6 +58,10 @@
 				/js/** = anon
 				/font/** = anon
 				/images/** = anon
+				/img/** = anon
+				/ueditor/** = anon
+				/upload/** = anon
+				/WEB-INF/lib/** = anon
 				/sass/** = anon
 				/user/login.do = anon
 				/user/reg.do = anon

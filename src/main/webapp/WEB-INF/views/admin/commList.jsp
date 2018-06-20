@@ -28,7 +28,7 @@
 <div style="" id="CommPublish">
 
     <div id="commodityAdd" class="main" style="">
-        <form method="post" id="dataForm" action="/commodity/addCommodity.do">
+        <form method="post" id="dataForm" action="/ee/commodity/addCommodity.do">
             <div id="spv"></div>
             <div class="section" style="">
                
@@ -154,16 +154,16 @@
                             </p>
                                 <div class="product-view">
                                     <input type="hidden" name="commImgOne">
-                                    <input type="hidden" name="commImgTwo">
+                                    <!-- <input type="hidden" name="commImgTwo">
                                     <input type="hidden" name="commImgThree">
                                     <input type="hidden" name="commImgFour">
-                                    <input type="hidden" name="commImgFive">
+                                    <input type="hidden" name="commImgFive"> -->
 
                                     <ul>
-                                        <li id="commImgOne" flag="file"
+                                        <li id="mainImg" flag="file"
                                             file-data="{ext:'jpg|png|gif',onCompleteCallBack:'imgUploadEnd'}"
                                             class=""><span>商品主图</span></li>
-                                        <li id="commImgTwo" flag="file"
+                                        <!-- <li id="commImgTwo" flag="file"
                                             file-data="{ext:'jpg|png|gif',onCompleteCallBack:'imgUploadEnd'}"
                                             class=""></li>
                                         <li id="commImgThree" flag="file"
@@ -174,7 +174,7 @@
                                             class=""></li>
                                         <li id="commImgFive" flag="file"
                                             file-data="{ext:'jpg|png|gif',onCompleteCallBack:'imgUploadEnd'}"
-                                            class=""><span>商品底图</span></li>
+                                            class=""><span>商品底图</span></li> -->
                                     </ul>
                                    </div>
                             </dd>
@@ -240,7 +240,7 @@
             findCommCategorys:function () {
                 var _this = this;
                 $.ajax({
-                    url:"/commodity/categorys.htmls",
+                    url:"/ee/commodity/categorys.do",
                     data:{pid:0},
                     dataType:"json",
                     type:"post",

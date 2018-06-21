@@ -11,7 +11,7 @@
 		<result column="main_img" property="mainImg"/>
 		<result column="detail" property="detail"/>
 	</resultMap>
-	<insert id="addCommodity" parameterType="com.oracle.model.Commodity">
+	<insert id="addCommodity" parameterType="com.oracle.model.Commodity" useGeneratedKeys="true" keyProperty="id">
 		insert into t_Commodity(name,sale_point,cid,price,store,main_img,detail) values (#{name},#{salePoint},#{cid},#{price},#{store},#{mainImg},#{detail})
 	</insert>
 	<resultMap id="CateCommMapper" type="com.oracle.model.CateComm">

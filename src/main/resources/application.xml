@@ -53,16 +53,16 @@
             <value>
             	<!-- /candidate/admin/**=authc -->
                 <!--anon 表示匿名访问，不需要认证以及授权-->
-				/css/** = anon
-				/dist/** = anon
-				/js/** = anon
-				/font/** = anon
-				/images/** = anon
-				/img/** = anon
-				/ueditor/** = anon
-				/upload/** = anon
-				/WEB-INF/lib/** = anon
-				/sass/** = anon
+				/css/* = anon
+				/dist/* = anon
+				/js/* = anon
+				/font/* = anon
+				/images/* = anon
+				/img/* = anon
+				/ueditor/* = anon
+				/upload/* = anon
+				/WEB-INF/lib/* = anon
+				/sass/* = anon
 				/user/login.do = anon
 				/user/reg.do = anon
 				/reg.html = anon
@@ -70,7 +70,10 @@
 				/user/add.do = anon
 				/user/admin/index.do = anon
 				/user/index.do = anon
-				/res/** = anon
+				/fileUpload.do = anon
+				/**/*.js = anon
+                /**/*.css = anon
+				/res/* = anon
 				/logout = logout
                 <!--authc表示需要认证 没有进行身份认证是不能进行访问的-->
                 /**=authc

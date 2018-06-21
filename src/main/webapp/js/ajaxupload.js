@@ -678,7 +678,7 @@ $(function(){
 var uploadfile = {
 	init:function(){
 		//文件上传处理类
-		var upload_file_url = '/fileUpload.htmls';
+		var upload_file_url = '/ee/fileUpload.do';
 		//找到页面中所有的附件	传<a>标签对象，循环初始化
 		$("*[flag='file']").each(function(){
 			var curObject = $(this);

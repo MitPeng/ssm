@@ -12,7 +12,7 @@
     <link href="/ee/css/common.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/ee/css/layer.css" id="layuicss-skinlayercss">
     <link href="/ee/css/ueditor.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/ee/css//codemirror.css">
+    <link rel="stylesheet" type="text/css" href="/ee/css/codemirror.css">
 
 <style type="text/css">
         .sure{background: #0099ff;color:#fff;width: 150px;height: 50px;font-size:25px;}

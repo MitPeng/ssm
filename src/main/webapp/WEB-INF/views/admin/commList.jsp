@@ -154,16 +154,16 @@
                             </p>
                                 <div class="product-view">
                                     <input type="hidden" name="commImgOne">
-                                    <!-- <input type="hidden" name="commImgTwo">
+                                    <input type="hidden" name="commImgTwo">
                                     <input type="hidden" name="commImgThree">
                                     <input type="hidden" name="commImgFour">
-                                    <input type="hidden" name="commImgFive"> -->
+                                    <input type="hidden" name="commImgFive">
 
                                     <ul>
-                                        <li id="mainImg" flag="file"
+                                        <li id="commImgOne" flag="file"
                                             file-data="{ext:'jpg|png|gif',onCompleteCallBack:'imgUploadEnd'}"
                                             class=""><span>商品主图</span></li>
-                                        <!-- <li id="commImgTwo" flag="file"
+                                        <li id="commImgTwo" flag="file"
                                             file-data="{ext:'jpg|png|gif',onCompleteCallBack:'imgUploadEnd'}"
                                             class=""></li>
                                         <li id="commImgThree" flag="file"
@@ -174,7 +174,7 @@
                                             class=""></li>
                                         <li id="commImgFive" flag="file"
                                             file-data="{ext:'jpg|png|gif',onCompleteCallBack:'imgUploadEnd'}"
-                                            class=""><span>商品底图</span></li> -->
+                                            class=""><span>商品底图</span></li>
                                     </ul>
                                    </div>
                             </dd>

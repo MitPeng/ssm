@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.oracle.dao.IImgDao">
+	<resultMap type="com.oracle.model.Img" id="ImgMapper">
+		<id column="id" property="id"/>
+		<result column="comm_id" property="commId"/>
+		<result column="url" property="url"/>
+	</resultMap>
+	<insert id="addImg" parameterType="com.oracle.model.Img">
+		insert into t_img (comm_id,url) values (#{commId},#{url})
+	</insert>
+</mapper>

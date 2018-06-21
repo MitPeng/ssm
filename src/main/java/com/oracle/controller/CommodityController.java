@@ -25,10 +25,10 @@ public class CommodityController {
 	
 	@RequestMapping("/addCommodity")
 	@ResponseBody
-	public Map<String,Object> addCommodity(Commodity c) {
+	public Map<String,Object> addCommodity(Commodity c, String commImgOne, String commImgTwo, String commImgThree, String commImgFour, String commImgFive) {
 		Map<String,Object> map = new HashMap<String,Object>();
-//		System.out.println(c.getMainImg());
-		int res = cosi.addCommodity(c);
+		c.setMainImg(commImgOne);
+		int res = cosi.addCommodity(c,commImgOne,commImgTwo,commImgThree,commImgFour,commImgFive);
 		if(res==1) {
 			map.put("code", 200);
 		}else {

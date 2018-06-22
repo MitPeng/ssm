@@ -234,20 +234,20 @@
         </div>
         <ul>
             <li style="left: 0px;"> <a href="#"> <i></i> <img src="/ee/images/rBACW1qhDBGACMecAADa6XLdYYM545.jpg" alt=""> </a> </li>
-            <li class="press" style="padding-left: 10px; left: 620px;"> <a href="#"> <i></i> <img src="/images/rBACW1qhDYeAFGqWAABwv24WRXc926.jpg" alt=""> </a> </li>
-            <li class="press" style="padding-left: 10px; left: 712px;"> <a href="#"> <i></i> <img src="/images/rBACYVqhDViAJFlsAABxH9aLtJ8293.jpg" alt=""> </a> </li>
-            <li class="press" style="padding-left: 10px; left: 804px;"> <a href="#"> <i></i> <img src="/images/rBACW1qBb6OANBWRAAE4oNU4gxM506.jpg" alt=""> </a> </li>
-            <li class="press" style="padding-left: 10px; left: 896px;"> <a href="#"> <i></i> <img src="/images/rBACVFqhDHqAdOV6AAChhUm7rlI888.jpg" alt=""> </a> </li>
-            <li class="press" style="padding-left: 10px; left: 988px;"> <a href="#"> <i></i> <img src="/images/rBACYVqhDEiAYdmZAACTOmitXSY895.jpg" alt=""> </a> </li>
+            <li class="press" style="padding-left: 10px; left: 620px;"> <a href="#"> <i></i> <img src="/ee/images/rBACW1qhDYeAFGqWAABwv24WRXc926.jpg" alt=""> </a> </li>
+            <li class="press" style="padding-left: 10px; left: 712px;"> <a href="#"> <i></i> <img src="/ee/images/rBACYVqhDViAJFlsAABxH9aLtJ8293.jpg" alt=""> </a> </li>
+            <li class="press" style="padding-left: 10px; left: 804px;"> <a href="#"> <i></i> <img src="/ee/images/rBACW1qBb6OANBWRAAE4oNU4gxM506.jpg" alt=""> </a> </li>
+            <li class="press" style="padding-left: 10px; left: 896px;"> <a href="#"> <i></i> <img src="/ee/images/rBACVFqhDHqAdOV6AAChhUm7rlI888.jpg" alt=""> </a> </li>
+            <li class="press" style="padding-left: 10px; left: 988px;"> <a href="#"> <i></i> <img src="/ee/images/rBACYVqhDEiAYdmZAACTOmitXSY895.jpg" alt=""> </a> </li>
         </ul>
     </div>
 
     <div class="category-recommend-3" v-for="cc in commByCateLimitTen">
         <div class="category-title">
             <p>{{cc.catName}}</p>
-            <a :href="'/commodity/CommList.htmls?catId='+cc.catId" target="_blank">查看全部 &gt;</a> </div>
+            <a :href="'/commodity/CommList.do?catId='+cc.catId" target="_blank">查看全部 &gt;</a> </div>
         <ul class="category-list clearfix">
-            <li v-for="comm in cc.comms"> <a :href="'/commodity/detail.htmls?id='+comm.id" target="_blank"> <i><img :src="comm.mainImg" alt=""></i>
+            <li v-for="comm in cc.comms"> <a :href="'/commodity/detail.do?id='+comm.id" target="_blank"> <i><img :src="comm.mainImg" alt=""></i>
                 <dl>
                     <dt>{{comm.name}}</dt>
                     <dd>¥{{comm.price}}</dd>
@@ -344,7 +344,7 @@
             findCommCategorys:function () {
                 var _this = this;
                 $.ajax({
-                    url:"/commodity/categorys.htmls",
+                    url:"/ee/commodity/categorys.do",
                     data:{pid:0},
                     dataType:"json",
                     type:"post",
@@ -356,7 +356,7 @@
 
 
                 $.ajax({
-                    url:"/commodity/queryCommByCateLimitTen.htmls",
+                    url:"/ee/commodity/queryCommByCateLimitTen.do",
                     dataType:"json",
                     type:"post",
                     success:function (d) {

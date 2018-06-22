@@ -22,6 +22,7 @@ $(document).ready(function () {
         $("<li class=\"header\">主导航</li>").appendTo(showlist);
         isFirstMenu=menulist.extend.children.length;
         showall(menulist.extend.children, showlist);
+        $("<li ><a href=\"/ee/user/exit.do\"><i class=\"fa fa-circle-o\" ></i>退出</a></li>").appendTo(showlist);
         $("#div_menu").append(showlist);
     });
      function showall(menu_list, parent) {

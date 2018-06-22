@@ -60,7 +60,7 @@ public class UserController {
 	
 	@RequestMapping("/login")
 	@ResponseBody
-	public Object login(String phone,String passWord) {
+	public Object login(String phone,String passWord,HttpSession session) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Subject subject = SecurityUtils.getSubject();
 		if(subject.isAuthenticated()==false) {
@@ -84,11 +84,15 @@ public class UserController {
 //				map.put("status", 0);
 //				return map;
 //			}
+            User user = (User) session.getAttribute("CURRENT_USER");
+            session.setAttribute("USER_ID", user.getId() + "");
 			map.put("status", 1);
 		}
 		String roleCode = "";
         if(subject.hasRole("admin")){
             roleCode = "admin";
+        }else if(subject.hasRole("user")) {
+        	roleCode = "user";
         }
         map.put("roleCode",roleCode);
         return map;

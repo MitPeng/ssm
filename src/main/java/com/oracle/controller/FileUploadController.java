@@ -22,9 +22,9 @@ public class FileUploadController {
     public Map<String,Object> fileUpload (@RequestParam("uplodFile") MultipartFile uplodFile, HttpSession session) throws IOException {
     	Map<String,Object> map = new HashMap<String, Object>();
     	String filePath =  session.getServletContext().getRealPath("/upload");
-        System.out.println(uplodFile.getOriginalFilename());
-        System.out.println(uplodFile.getContentType());
-        System.out.println(uplodFile.getName());
+//        System.out.println(uplodFile.getOriginalFilename());
+//        System.out.println(uplodFile.getContentType());
+//        System.out.println(uplodFile.getName());
         String fileNewName = UUID.randomUUID().toString()+"."+uplodFile.getOriginalFilename().split("[.]")[1];
         FileUtils.copyInputStreamToFile(uplodFile.getInputStream(),new File(filePath+"/"+fileNewName));
         map.put("url","/ee/upload/"+fileNewName);

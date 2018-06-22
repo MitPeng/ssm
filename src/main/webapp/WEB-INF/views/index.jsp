@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <title>必要  - 买大牌制造商产品，上必要</title>
     <link href="http://static.biyao.com/pc/favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link href="/css/common.css" rel="stylesheet" type="text/css">
-    <link href="/css/new.main.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/css/new.index.css">
+    <link href="/ee/css/common.css" rel="stylesheet" type="text/css">
+    <link href="/ee/css/new.main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/ee/css/new.index.css">
 </head>
 <body id="pagebody">
 <div id="mainComm">
@@ -174,7 +174,7 @@
         <p>分享<b></b></p>
         <div class="share-main">
             <dl>
-                <dt><img class="share-code" src="./必要 - 买大牌制造商产品，上必要_files/ewm.jpg"></dt>
+                <dt><img class="share-code" src="/ee/images/ewm.jpg"></dt>
                 <dd>扫一扫，分享给好友！</dd>
             </dl>
             <ul>
@@ -191,12 +191,12 @@
 <div class="banner">
     <div class="banner-slider">
         <ul>
-            <li style="display: none;"><a href="#"><img src="images/rBACYVqhBE6Ac0sqAADjnZisrqc752.jpg" alt=""></a></li>
-            <li style="display: none;"><a href="#"><img src="images/rBACYVqhBmCAUvuyAAEVGRKbryg494.jpg" alt=""></a></li>
-            <li style="display:none;"><a href="#"><img src="images/rBACW1qhBXiAbZ-BAADhvPmxOaI215.jpg" alt=""></a></li>
-            <li style="display:none;"><a href="#"><img src="images/rBACW1qhBM2AcwUxAAECT7yNiJU296.jpg" alt=""></a></li>
-            <li><a href="#"><img src="images/rBACW1qhD2mAOi99AADjhfQ3pQs144.jpg" alt=""></a></li>
-            <li><a href="#"><img src="images/rBACW1qhBJWALU8-AAEMSIzwt6E173.jpg" alt=""></a></li>
+            <li style="display: none;"><a href="#"><img src="/ee/images/rBACYVqhBE6Ac0sqAADjnZisrqc752.jpg" alt=""></a></li>
+            <li style="display: none;"><a href="#"><img src="/ee/images/rBACYVqhBmCAUvuyAAEVGRKbryg494.jpg" alt=""></a></li>
+            <li style="display:none;"><a href="#"><img src="/ee/images/rBACW1qhBXiAbZ-BAADhvPmxOaI215.jpg" alt=""></a></li>
+            <li style="display:none;"><a href="#"><img src="/ee/images/rBACW1qhBM2AcwUxAAECT7yNiJU296.jpg" alt=""></a></li>
+            <li><a href="#"><img src="/ee/images/rBACW1qhD2mAOi99AADjhfQ3pQs144.jpg" alt=""></a></li>
+            <li><a href="#"><img src="/ee/images/rBACW1qhBJWALU8-AAEMSIzwt6E173.jpg" alt=""></a></li>
         </ul>
         <span class="slider-left"></span> <span class="slider-right"></span> </div>
     <ul class="nav-list">
@@ -217,15 +217,15 @@
 </div>
 <!-- 专题文章部分 -->
 
-<div class="article"> <a href="#"> <img src="images/rBACW1owSW6ABrNqAAAWQIF__tQ201.png" alt=""> <span>以花置家，从简治美 | 一周好设计</span> <i>2018-03-08</i> <i>老必</i> </a> </div>
+<div class="article"> <a href="#"> <img src="/ee/images/rBACW1owSW6ABrNqAAAWQIF__tQ201.png" alt=""> <span>以花置家，从简治美 | 一周好设计</span> <i>2018-03-08</i> <i>老必</i> </a> </div>
 
 <!-- 模块部分 -->
 <div class="category">
     <div class="category-recommend-2">
         <ul class="clearfix">
-            <li> <a href="#"> <img src="images/rBACW1qhC36AMb4GAABi46ahWj0242.jpg" alt=""> </a> </li>
-            <li> <a href="#"> <img src="images/rBACW1qhCZOAOXEzAABXO4E3qe0511.jpg" alt=""> </a> </li>
-            <li> <a href="#"> <img src="images/rBACW1qhCeWAPmcRAABXHhB2vZg748.jpg" alt=""> </a> </li>
+            <li> <a href="#"> <img src="/ee/images/rBACW1qhC36AMb4GAABi46ahWj0242.jpg" alt=""> </a> </li>
+            <li> <a href="#"> <img src="/ee/images/rBACW1qhCZOAOXEzAABXO4E3qe0511.jpg" alt=""> </a> </li>
+            <li> <a href="#"> <img src="/ee/images/rBACW1qhCeWAPmcRAABXHhB2vZg748.jpg" alt=""> </a> </li>
         </ul>
     </div>
     <div class="category-recommend-1">
@@ -233,12 +233,12 @@
             <p>精选</p>
         </div>
         <ul>
-            <li style="left: 0px;"> <a href="#"> <i></i> <img src="images/rBACW1qhDBGACMecAADa6XLdYYM545.jpg" alt=""> </a> </li>
-            <li class="press" style="padding-left: 10px; left: 620px;"> <a href="#"> <i></i> <img src="images/rBACW1qhDYeAFGqWAABwv24WRXc926.jpg" alt=""> </a> </li>
-            <li class="press" style="padding-left: 10px; left: 712px;"> <a href="#"> <i></i> <img src="images/rBACYVqhDViAJFlsAABxH9aLtJ8293.jpg" alt=""> </a> </li>
-            <li class="press" style="padding-left: 10px; left: 804px;"> <a href="#"> <i></i> <img src="images/rBACW1qBb6OANBWRAAE4oNU4gxM506.jpg" alt=""> </a> </li>
-            <li class="press" style="padding-left: 10px; left: 896px;"> <a href="#"> <i></i> <img src="images/rBACVFqhDHqAdOV6AAChhUm7rlI888.jpg" alt=""> </a> </li>
-            <li class="press" style="padding-left: 10px; left: 988px;"> <a href="#"> <i></i> <img src="images/rBACYVqhDEiAYdmZAACTOmitXSY895.jpg" alt=""> </a> </li>
+            <li style="left: 0px;"> <a href="#"> <i></i> <img src="/ee/images/rBACW1qhDBGACMecAADa6XLdYYM545.jpg" alt=""> </a> </li>
+            <li class="press" style="padding-left: 10px; left: 620px;"> <a href="#"> <i></i> <img src="/images/rBACW1qhDYeAFGqWAABwv24WRXc926.jpg" alt=""> </a> </li>
+            <li class="press" style="padding-left: 10px; left: 712px;"> <a href="#"> <i></i> <img src="/images/rBACYVqhDViAJFlsAABxH9aLtJ8293.jpg" alt=""> </a> </li>
+            <li class="press" style="padding-left: 10px; left: 804px;"> <a href="#"> <i></i> <img src="/images/rBACW1qBb6OANBWRAAE4oNU4gxM506.jpg" alt=""> </a> </li>
+            <li class="press" style="padding-left: 10px; left: 896px;"> <a href="#"> <i></i> <img src="/images/rBACVFqhDHqAdOV6AAChhUm7rlI888.jpg" alt=""> </a> </li>
+            <li class="press" style="padding-left: 10px; left: 988px;"> <a href="#"> <i></i> <img src="/images/rBACYVqhDEiAYdmZAACTOmitXSY895.jpg" alt=""> </a> </li>
         </ul>
     </div>
 
@@ -264,7 +264,7 @@
     <div class="foot_a">
         <div class="container">
             <div class="bottom_imgslogan">
-                <img src="img/bottom_imgslogan.jpg" />
+                <img src="/ee/img/bottom_imgslogan.jpg" />
             </div>
         </div>
     </div>
@@ -272,7 +272,7 @@
         <div class="container">
             <div class="foot-middle">
                 <div>
-                    <img src="img/we.png" alt="">
+                    <img src="/ee/img/we.png" alt="">
                     <ul>
                         <li>帮助中心</li>
                         <li><a href="JavaScript:;">平台政策</a></li>
@@ -280,7 +280,7 @@
                     </ul>
                 </div>
                 <div>
-                    <img src="img/we.png" alt="">
+                    <img src="/ee/img/we.png" alt="">
                     <ul>
                         <li>配送与支付</li>
                         <li><a href="JavaScript:;">到体验厅支付</a></li>
@@ -290,7 +290,7 @@
                     </ul>
                 </div>
                 <div>
-                    <img src="img/we.png" alt="">
+                    <img src="/ee/img/we.png" alt="">
                     <ul>
                         <li>服务保证</li>
                         <li><a href="JavaScript:;">售后服务条款</a></li>
@@ -300,7 +300,7 @@
                     </ul>
                 </div>
                 <div>
-                    <img src="img/we.png" alt="">
+                    <img src="/ee/img/we.png" alt="">
                     <ul>
                         <li>关于我的</li>
                         <li><a href="JavaScript:;">资金管理</a></li>
@@ -309,7 +309,7 @@
                     </ul>
                 </div>
                 <div class="ewm_bottom">
-                    <img src="img/ewm_bottom.jpg" />
+                    <img src="/ee/img/ewm_bottom.jpg" />
                 </div>
             </div>
         </div>
@@ -321,14 +321,14 @@
     </div>
 </footer>
 </div>
-<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/md5.js"></script>
-<script type="text/javascript" src="js/masterCommon.js"></script>
-<script type="text/javascript" src="js/jquery.extention.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/bytrack.js"></script>
+<script type="text/javascript" src="/ee/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="/ee/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/ee/js/md5.js"></script>
+<script type="text/javascript" src="/ee/js/masterCommon.js"></script>
+<script type="text/javascript" src="/ee/js/jquery.extention.js"></script>
+<script type="text/javascript" src="/ee/js/common.js"></script>
+<script type="text/javascript" src="/ee/js/index.js"></script>
+<script type="text/javascript" src="/ee/js/bytrack.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
     var myVue = new Vue({

@@ -8,10 +8,9 @@
 		<result column="pid" property="pid"/>
 		<result column="add_date" property="addDate"/>
 		<result column="update_date" property="updateDate"/>
-		<result column="sort" property="sort"/>
 	</resultMap>
 	<insert id="addCategory" parameterType="com.oracle.model.Category">
-		insert into t_Category(cat_name,cat_code,pid,add_date,sort) values (#{catName},#{catCode},#{pid},STR_TO_DATE(#{addDate},'%Y-%m-%d %H:%i:%s'),#{sort})
+		insert into t_Category(cat_name,cat_code,pid,add_date) values (#{catName},#{catCode},#{pid},STR_TO_DATE(#{addDate},'%Y-%m-%d %H:%i:%s'))
 	</insert>
 	<update id="updateCategoryById" parameterType="com.oracle.model.Category">
 		update t_Category 
@@ -20,7 +19,6 @@
 		<if test="catCode!=null"> cat_code=#{catCode},</if>
 		<if test="pid!=null"> pid=#{pid},</if>
 		<if test="updateDate!=null"> update_date=STR_TO_DATE(#{updateDate},'%Y-%m-%d %H:%i:%s'),</if>
-		<if test="sort!=null"> sort=#{sort},</if>
 		</set>
 		 where id = #{id}
 	</update>

@@ -12,15 +12,26 @@
 		<result column="detail" property="detail"/>
 	</resultMap>
 	<insert id="addCommodity" parameterType="com.oracle.model.Commodity" useGeneratedKeys="true" keyProperty="id">
-		insert into t_Commodity(name,sale_point,cid,price,store,main_img,detail) values (#{name},#{salePoint},#{cid},#{price},#{store},#{mainImg},#{detail})
+		insert into t_commodity (name,sale_point,cid,price,store,main_img,detail) values (#{name},#{salePoint},#{cid},#{price},#{store},#{mainImg},#{detail})
 	</insert>
-	<resultMap id="CateCommMapper" type="com.oracle.model.CateComm">
-	    <id column="id" property="id"/>
-	    <result property="name" column="cat_name" />
-	    <result property="pid" column="pid"/>
-	    <collection property="categoryList" column="id" ofType="com.oracle.model.CateComm" select="queryCategoryByPid"/>
-  	</resultMap>
-	<select id="queryCategoryByPid" resultMap="CateCommMapper">
-    	select id,cat_name,pid from t_category where pid=#{pid}
-  	</select>
+	<resultMap type="com.oracle.model.CateList" id="CateListMapper">
+		<id column="id" property="id"/>
+		<result column="cat_name" property="name"/>
+		<result column="pid" property="pid"/>
+		<collection property="categoryList" column="id" ofType="com.oracle.model.CateList" select="queryCategoryByPid"/>
+	</resultMap>
+	<select id="queryCategoryByPid" resultMap="CateListMapper">
+		select id,cat_name,pid from t_category where pid = #{pid}
+	</select>
+	<resultMap type="com.oracle.model.CateComm" id="CateCommMapper">
+		<id column="id" property="catId"/>
+		<result column="cat_name" property="catName"/>
+		<collection property="comms" column="id" ofType="com.oracle.model.Commodity" select="queryCommLimitTen"/>
+	</resultMap>
+	<select id="queryCommLimitTen" resultMap="CommodityMapper">
+		select * from t_commodity where cid=#{catId} order by id desc limit 10
+	</select>
+	<select id="queryCommByCateLimitTen" resultMap="CateCommMapper">
+		select id,cat_name from t_category where pid!=0
+	</select>
 </mapper>

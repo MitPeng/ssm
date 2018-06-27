@@ -10,9 +10,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.oracle.dao.IRoleDao;
 import com.oracle.dao.IUserDao;
+import com.oracle.model.CateComm;
 import com.oracle.model.Menu;
 import com.oracle.model.Role;
 import com.oracle.model.User;
+import com.oracle.service.ICommodityService;
 import com.oracle.service.IMenuService;
 import com.oracle.service.IRoleService;
 
@@ -23,7 +25,8 @@ public class UserTest {
 	@Autowired
 //	private IUserDao iud;
 //	private IRoleService rsi;
-	private IMenuService msi;
+//	private IMenuService msi;
+	private ICommodityService csi;
 	
 	@Test
 	public void user() {
@@ -31,7 +34,8 @@ public class UserTest {
 //		System.out.println(u.getSalt());
 //		List<Role> roles = rsi.findRoleByUid(4);
 //		System.out.println(roles);
-		List<Menu> menus = msi.findMenuByPid(0);
-		System.out.println(menus);
+//		List<Menu> menus = msi.findMenuByPid(0);
+		List<CateComm> cc = csi.queryCommByCateLimitTen();
+		System.out.println(cc.toString());
 	}
 }

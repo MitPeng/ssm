@@ -1,36 +1,38 @@
 package com.oracle.model;
 
 import java.util.List;
+import com.oracle.model.Commodity;
 
 public class CateComm {
-	private Integer id;
-	private String name;
-	private Integer pid;
-	private List<CateComm> categoryList;
+	private Integer catId;
+	private String catName;
+	private List<Commodity> comms;
 	
-	public Integer getId() {
-		return id;
+	public CateComm() {
+		super();
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public CateComm(Integer catId, String catName, List<Commodity> comms) {
+		super();
+		this.catId = catId;
+		this.catName = catName;
+		this.comms = comms;
 	}
-	public String getName() {
-		return name;
+	public Integer getCatId() {
+		return catId;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setCatId(Integer catId) {
+		this.catId = catId;
 	}
-	public Integer getPid() {
-		return pid;
+	public String getCatName() {
+		return catName;
 	}
-	public void setPid(Integer pid) {
-		this.pid = pid;
+	public void setCatName(String catName) {
+		this.catName = catName;
 	}
-	public List<CateComm> getCategoryList() {
-		return categoryList;
+	public List<Commodity> getComms() {
+		return comms;
 	}
-	public void setCategoryList(List<CateComm> categoryList) {
-		this.categoryList = categoryList;
+	public void setComms(List<Commodity> comms) {
+		this.comms = comms;
 	}
-	
 }

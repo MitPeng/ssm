@@ -7,13 +7,11 @@ public class Category {
 	private Integer pid;
 	private String addDate;
 	private String updateDate;
-	private Integer sort;
 	
 	public Category() {
 		super();
 	}
-	public Category(Integer id, String catName, String catCode, Integer pid, String addDate, String updateDate,
-			Integer sort) {
+	public Category(Integer id, String catName, String catCode, Integer pid, String addDate, String updateDate) {
 		super();
 		this.id = id;
 		this.catName = catName;
@@ -21,22 +19,19 @@ public class Category {
 		this.pid = pid;
 		this.addDate = addDate;
 		this.updateDate = updateDate;
-		this.sort = sort;
 	}
-	public Category(String catName, String catCode, Integer pid, Integer sort) {
+	public Category(String catName, String catCode, Integer pid) {
 		super();
 		this.catName = catName;
 		this.catCode = catCode;
 		this.pid = pid;
-		this.sort = sort;
 	}
-	public Category(Integer id, String catName, String catCode, Integer pid, Integer sort) {
+	public Category(Integer id, String catName, String catCode, Integer pid) {
 		super();
 		this.id = id;
 		this.catName = catName;
 		this.catCode = catCode;
 		this.pid = pid;
-		this.sort = sort;
 	}
 	public Integer getId() {
 		return id;
@@ -73,12 +68,6 @@ public class Category {
 	}
 	public void setUpdateDate(String updateDate) {
 		this.updateDate = updateDate;
-	}
-	public Integer getSort() {
-		return sort;
-	}
-	public void setSort(Integer sort) {
-		this.sort = sort;
 	}
 	
 }

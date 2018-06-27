@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.oracle.dao.ICommodityDao;
 import com.oracle.dao.IImgDao;
 import com.oracle.model.CateComm;
+import com.oracle.model.CateList;
 import com.oracle.model.Commodity;
 import com.oracle.model.Img;
 import com.oracle.service.ICommodityService;
@@ -48,9 +49,15 @@ public class CommodityServiceImple implements ICommodityService {
 	}
 
 	@Override
-	public List<CateComm> queryCategoryByPid(Integer pid) {
+	public List<CateList> queryCategoryByPid(Integer pid) {
 		// TODO Auto-generated method stub
 		return icd.queryCategoryByPid(pid);
+	}
+
+	@Override
+	public List<CateComm> queryCommByCateLimitTen() {
+		// TODO Auto-generated method stub
+		return icd.queryCommByCateLimitTen();
 	}
 
 }

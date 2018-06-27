@@ -42,10 +42,6 @@
 	    	<span>父id</span>
 			<input type="text" id="pid">
 			</label>
-			<label>
-	    	<span>排序</span>
-			<input type="text" id="sort">
-			</label>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -77,11 +73,6 @@
 			<label>
 	    	<span>类别编码</span>
 			<input type="text" id="catCode1">
-			</label>
-			<br>
-			<label>
-	    	<span>排序</span>
-			<input type="text" id="sort1">
 			</label>
 	      </div>
 	      <div class="modal-footer">
@@ -124,7 +115,7 @@ function add(){
 	$.ajax({
 		url:"/ee/category/add.do",
 		type:"post",
-		data:{"catName":$("#catName").val(),"catCode":$("#catCode").val(),"pid":$("#pid").val(),"sort":$("#sort").val()},
+		data:{"catName":$("#catName").val(),"catCode":$("#catCode").val(),"pid":$("#pid").val()},
 		dataType:"json",
 		success:
 			alert("新增成功")
@@ -135,7 +126,7 @@ function update(){
 	$.ajax({
 		url:"/ee/category/update.do",
 		type:"post",
-		data:{"id":$("#id1").val(),"catName":$("#catName1").val(),"catCode":$("#catCode1").val(),"pid":$("#pid1").val(),"sort":$("#sort1").val()},
+		data:{"id":$("#id1").val(),"catName":$("#catName1").val(),"catCode":$("#catCode1").val(),"pid":$("#pid1").val()},
 		dataType:"json",
 		success:
 			alert("修改成功")
@@ -216,9 +207,6 @@ $table = $('#table').bootstrapTable({
     }, {
         field: 'updateDate',
         title: '修改日期'
-    }, {
-        field: 'sort',
-        title: '排序'
     }, {
         field:'id',
         title: 'id',

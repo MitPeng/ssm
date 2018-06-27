@@ -1,7 +1,5 @@
 package com.oracle.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oracle.model.CateComm;
+import com.oracle.model.CateList;
 import com.oracle.model.Commodity;
 import com.oracle.service.ICommodityService;
 
@@ -39,7 +38,13 @@ public class CommodityController {
 	
 	@RequestMapping(value="/categorys",method = RequestMethod.POST)
     @ResponseBody
-    public List<CateComm> queryCategoryByPid(Integer pid) {
+    public List<CateList> queryCategoryByPid(Integer pid) {
         return cosi.queryCategoryByPid(pid);
+    }
+	
+	@RequestMapping(value="/queryCommByCateLimitTen",method = RequestMethod.POST)
+    @ResponseBody
+    public List<CateComm> queryCommByCateLimitTen() {
+        return cosi.queryCommByCateLimitTen();
     }
 }

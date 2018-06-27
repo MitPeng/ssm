@@ -9,4 +9,7 @@
 	<insert id="addImg" parameterType="com.oracle.model.Img">
 		insert into t_img (comm_id,url) values (#{commId},#{url})
 	</insert>
+	<select id="findImgByCid" resultMap="ImgMapper">
+		select * from t_img where comm_id = #{cid}
+	</select>
 </mapper>

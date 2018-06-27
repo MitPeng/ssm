@@ -34,4 +34,8 @@
 	<select id="queryCommByCateLimitTen" resultMap="CateCommMapper">
 		select id,cat_name from t_category where pid!=0
 	</select>
+	<select id="findCommodityById" parameterType="int" resultMap="CommodityMapper">
+		select * from t_commodity where id = #{id}
+	</select>
+	
 </mapper>

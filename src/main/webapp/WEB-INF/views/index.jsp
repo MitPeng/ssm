@@ -245,9 +245,9 @@
     <div class="category-recommend-3" v-for="cc in commByCateLimitTen">
         <div class="category-title">
             <p>{{cc.catName}}</p>
-            <a :href="'/commodity/CommList.do?catId='+cc.catId" target="_blank">查看全部 &gt;</a> </div>
+            <a :href="'/ee/commodity/CommList.do?catId='+cc.catId" target="_blank">查看全部 &gt;</a> </div>
         <ul class="category-list clearfix">
-            <li v-for="comm in cc.comms"> <a :href="'/commodity/detail.do?id='+comm.id" target="_blank"> <i><img :src="comm.mainImg" alt=""></i>
+            <li v-for="comm in cc.comms"> <a :href="'/ee/commodity/detail.do?id='+comm.id" target="_blank"> <i><img :src="comm.mainImg" alt=""></i>
                 <dl>
                     <dt>{{comm.name}}</dt>
                     <dd>¥{{comm.price}}</dd>

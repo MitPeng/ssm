@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>商品详情页</title>
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/Font-Awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/layui-v2.2.5/css/layui.css">
-    <link rel="stylesheet" href="/css/base.css" />
-    <link rel="stylesheet" type="text/css" href="/css/index.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/buy.css">
+    <link rel="stylesheet" type="text/css" href="/ee/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/ee/css/Font-Awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/ee/css/layui-v2.2.5/css/layui.css">
+    <link rel="stylesheet" href="/ee/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/ee/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="/ee/css/buy.css">
 </head>
 <body>
 
@@ -157,7 +157,7 @@
                             <div class="comment-list">
                                 <div class="user-clum left">
                                     <div class="user-info">
-                                        <img src="img/toux2.jpg" alt="" />
+                                        <img src="/ee/img/toux2.jpg" alt="" />
                                         索德斯奈
                                     </div>
                                 </div>
@@ -170,10 +170,10 @@
                                     </div>
                                     <div class="pic-list clearfix">
                                         <a href="#" class="left">
-                                            <img src="img/1233.jpg" />
+                                            <img src="/ee/img/1233.jpg" />
                                         </a>
                                         <a href="#" class="left">
-                                            <img src="img/mid/03.jpg" />
+                                            <img src="/ee/img/mid/03.jpg" />
                                         </a>
                                     </div>
                                     <div class="comment-message clearfix">
@@ -198,7 +198,7 @@
                             <div class="comment-list">
                                 <div class="user-clum left">
                                     <div class="user-info">
-                                        <img src="img/toux2.jpg" alt="" />
+                                        <img src="/ee/img/toux2.jpg" alt="" />
                                         索德斯奈
                                     </div>
                                 </div>
@@ -211,10 +211,10 @@
                                     </div>
                                     <div class="pic-list clearfix">
                                         <a href="#" class="left">
-                                            <img src="img/1233.jpg" />
+                                            <img src="/ee/img/1233.jpg" />
                                         </a>
                                         <a href="#" class="left">
-                                            <img src="img/mid/03.jpg" />
+                                            <img src="/ee/img/mid/03.jpg" />
                                         </a>
                                     </div>
                                     <div class="comment-message clearfix">
@@ -240,7 +240,7 @@
                         <div class="supplier-info clearfix">
                             <div class="supplier-logo">
                                 <a href="#">
-                                    <img src="img/img2.png" />
+                                    <img src="/ee/img/img2.png" />
                                 </a>
                             </div>
                             <ul>
@@ -257,10 +257,10 @@
                         </div>
                         <dl class="list">
                             <dt>
-                                <a href="#"><img src="img/recoment1.jpg" /></a>
+                                <a href="#"><img src="/ee/img/recoment1.jpg" /></a>
                             </dt>
                             <dt>
-                                <a href="#"><img src="img/recoment1.jpg" /></a>
+                                <a href="#"><img src="/ee/img/recoment1.jpg" /></a>
                             </dt>
                         </dl>
                     </div>
@@ -273,7 +273,7 @@
     <div class="container">
         <div class="foot-middle">
             <div>
-                <img src="img/we.png" alt="" />
+                <img src="/ee/img/we.png" alt="" />
                 <ul>
                     <li>帮助中心</li>
                     <li><a href="JavaScript:;">平台政策</a></li>
@@ -281,7 +281,7 @@
                 </ul>
             </div>
             <div>
-                <img src="img/we.png" alt="" />
+                <img src="/ee/img/we.png" alt="" />
                 <ul>
                     <li>关于我们</li>
                     <li><a href="JavaScript:;">了解嗅色</a></li>
@@ -290,7 +290,7 @@
                 </ul>
             </div>
             <div>
-                <img src="img/we.png" alt="" />
+                <img src="/ee/img/we.png" alt="" />
                 <ul>
                     <li>配送与支付</li>
                     <li><a href="JavaScript:;">到体验厅支付</a></li>
@@ -310,7 +310,7 @@
                 </ul>
             </div>
             <div>
-                <img src="img/we.png" alt="" />
+                <img src="/ee/img/we.png" alt="" />
                 <ul>
                     <li>关于我的</li>
                     <li><a href="JavaScript:;">资金管理</a></li>
@@ -326,14 +326,14 @@
         <span>京ICP备13088531号</span>
     </div>
 </footer>
-<script type="text/javascript" src="js/jquery.1.4.2-min.js"></script>
+<script type="text/javascript" src="/ee/js/jquery.1.4.2-min.js"></script>
 <!-- 宝贝轮播 开始-->
-<script type="text/javascript" src="js/view.js"></script>
+<script type="text/javascript" src="/ee/js/view.js"></script>
 <!-- 宝贝轮播 结束-->
-<script type="text/javascript" src="js/vue.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-paginator.js"></script>
-<script src="/css/layui-v2.2.5/layui.js" charset="utf-8"></script>
+<script type="text/javascript" src="/ee/js/vue.min.js"></script>
+<script type="text/javascript" src="/ee/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/ee/js/bootstrap-paginator.js"></script>
+<script src="/ee/css/layui-v2.2.5/layui.js" charset="utf-8"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
     layui.use(['form', 'layedit', 'laydate'], function(){

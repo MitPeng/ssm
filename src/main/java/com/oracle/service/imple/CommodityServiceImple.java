@@ -60,4 +60,14 @@ public class CommodityServiceImple implements ICommodityService {
 		return icd.queryCommByCateLimitTen();
 	}
 
+	@Override
+	public Commodity findCommodityById(int id) {
+		// TODO Auto-generated method stub
+		return icd.findCommodityById(id);
+	}
+	
+	@Override
+	public List<Img> findImgByCid(int cid){
+		return iid.findImgByCid(cid);
+	}
 }

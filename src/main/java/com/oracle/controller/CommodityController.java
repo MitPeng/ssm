@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.oracle.model.CateComm;
 import com.oracle.model.CateList;
 import com.oracle.model.Commodity;
+import com.oracle.model.Img;
 import com.oracle.service.ICommodityService;
 
 @Controller
@@ -46,5 +48,17 @@ public class CommodityController {
     @ResponseBody
     public List<CateComm> queryCommByCateLimitTen() {
         return cosi.queryCommByCateLimitTen();
+    }
+	
+	@RequestMapping(value="/detail",method = RequestMethod.GET)
+    public String detail(Integer id,ModelMap model){
+        model.put("comm",cosi.findCommodityById(id));
+        List<Img> images = cosi.findImgByCid(id);
+        model.put("commImgOne",images.get(0).getUrl());
+        model.put("commImgTwo",images.get(1).getUrl());
+        model.put("commImgThree",images.get(2).getUrl());
+        model.put("commImgFour",images.get(3).getUrl());
+        model.put("commImgFive",images.get(4).getUrl());
+        return "detail";
     }
 }

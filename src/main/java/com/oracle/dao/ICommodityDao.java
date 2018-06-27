@@ -10,4 +10,5 @@ public interface ICommodityDao {
 	int addCommodity(Commodity c);
 	List<CateList> queryCategoryByPid(Integer pid);
 	List<CateComm> queryCommByCateLimitTen();
+	Commodity findCommodityById(int id);
 }

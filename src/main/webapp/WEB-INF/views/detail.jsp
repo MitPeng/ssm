@@ -28,11 +28,11 @@
                     <div class="smallImg">
                         <div id="imageMenu">
                             <ul>
-                                <li id="onlickImg"><img src="${commImgOne}" width="68" height="68" alt="洋妞"/></li>
-                                <li><img src="${commImgTwo}" width="68" height="68" alt="洋妞"/></li>
-                                <li><img src="${commImgThree}" width="68" height="68" alt="洋妞"/></li>
-                                <li><img src="${commImgFour}" width="68" height="68" alt="洋妞"/></li>
-                                <li><img src="${commImgFive}" width="68" height="68" alt="洋妞"/></li>
+                                <li id="onlickImg"><img src="${commImgOne}" width="68" height="68" alt="图1"/></li>
+                                <li><img src="${commImgTwo}" width="68" height="68" alt="图2"/></li>
+                                <li><img src="${commImgThree}" width="68" height="68" alt="图3"/></li>
+                                <li><img src="${commImgFour}" width="68" height="68" alt="图4"/></li>
+                                <li><img src="${commImgFive}" width="68" height="68" alt="图5"/></li>
                             </ul>
                         </div>
                     </div>
